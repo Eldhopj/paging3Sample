@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navi_main"
+    app:startDestination="@id/photoBaseFragment">
+    <fragment
+        android:id="@+id/photoBaseFragment"
+        android:name="com.mobiotics.templateapp_photoapp.PhotoBaseFragment"
+        android:label="PhotoBaseFragment" />
+</navigation>

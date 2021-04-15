@@ -1,10 +1,13 @@
 package com.mobiotics.templateapp_photoapp.model.photoModel
 
 
+import android.os.Parcelable
 import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
 @Keep
+@Parcelize
 data class User(
     @SerializedName("id")
     val id: String? = null, // Ul0QVz12Goo
@@ -26,4 +29,4 @@ data class User(
     val profileImage: ProfileImage? = null,
     @SerializedName("links")
     val links: Links? = null
-)
+) : Parcelable

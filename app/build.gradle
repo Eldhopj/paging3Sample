@@ -20,7 +20,10 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        buildConfigField("String", "UNSPLASH_ACCESS_KEY", unsplash_access_key)
+        buildConfigField 'String', 'UNSPLASH_ACCESS_KEY', unsplash_access_key
+
+        buildConfigField 'String', 'BASE_URL', base_url
+
     }
 
     buildTypes {
@@ -61,13 +64,13 @@ dependencies {
     // Dagger Hilt
     implementation "com.google.dagger:hilt-android:$hilt_version"
     kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
-    def hilt_androidx_version = "1.0.0-beta01"
-    implementation "androidx.hilt:hilt-lifecycle-viewmodel:$hilt_androidx_version"
-    kapt "androidx.hilt:hilt-compiler:$hilt_androidx_version"
 
     def retrofit_version = "2.9.0"
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+
+    implementation(platform("com.squareup.okhttp3:okhttp-bom:4.9.1"))
+    implementation("com.squareup.okhttp3:logging-interceptor")// No version!
 
     def glide_version = "4.12.0"
     implementation "com.github.bumptech.glide:glide:$glide_version"

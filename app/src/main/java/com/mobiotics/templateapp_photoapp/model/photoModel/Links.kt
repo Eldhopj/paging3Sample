@@ -1,10 +1,13 @@
 package com.mobiotics.templateapp_photoapp.model.photoModel
 
 
+import android.os.Parcelable
 import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
 @Keep
+@Parcelize
 data class Links(
     @SerializedName("self")
     val self: String? = null, // https://api.unsplash.com/users/ugmonk
@@ -16,4 +19,4 @@ data class Links(
     val likes: String? = null, // https://api.unsplash.com/users/ugmonk/likes
     @SerializedName("download")
     val download: String? = null // http://unsplash.com/photos/eOLpJytrbsQ/download
-)
+) : Parcelable

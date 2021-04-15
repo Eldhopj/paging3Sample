@@ -1,4 +1,4 @@
-package com.mobiotics.templateapp_photoapp
+package com.mobiotics.templateapp_photoapp.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
-import com.mobiotics.templateapp_photoapp.ui.MainActivity
 
 /**
  * Base fragment with view binding ,and other common stuffs
@@ -23,11 +22,6 @@ abstract class PhotoBaseFragment<T : ViewBinding> : Fragment() {
      * Binding
      */
     protected open val binding get() = _binding
-
-    /**
-     * getting Activity
-     */
-    protected val activity by lazy { requireActivity() as MainActivity }
 
     override fun onCreateView(
         inflater: LayoutInflater,

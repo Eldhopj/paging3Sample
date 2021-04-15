@@ -44,8 +44,14 @@ class SearchHandler @Inject constructor(private val retrofit: Retrofit) {
             }
         }
 
+        /**
+         *  Define how refreshes resume from the middle of the loaded paged data
+         *
+         * https://developer.android.com/topic/libraries/architecture/paging/v3-migration#refresh-keys
+         *
+         */
         override fun getRefreshKey(state: PagingState<Int, Photo>): Int? {
-            TODO("Not yet implemented")
+            return state.anchorPosition
         }
     }
 

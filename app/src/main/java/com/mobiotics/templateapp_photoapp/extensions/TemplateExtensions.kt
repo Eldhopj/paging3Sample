@@ -17,8 +17,9 @@ fun Context?.isOnline(): Boolean {
         if (networks.isNotEmpty()) {
             networks.forEach { network ->
                 val nc = connectivityManager.getNetworkCapabilities(network)
-                if (nc!!.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)) hasInternet =
-                    true
+                if (nc!!.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)) {
+                    hasInternet = true
+                }
             }
         }
         hasInternet

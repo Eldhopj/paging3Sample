@@ -22,11 +22,11 @@ class SearchHandler @Inject constructor(private val retrofit: Retrofit) {
         private val query: String
     ) : PagingSource<Int, Photo>() {
 
-        private val STARTING_PAGE_INDEX = 1
+        private val startingPage = 1
 
 
         override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Photo> {
-            val position = params.key ?: STARTING_PAGE_INDEX // Get the current page
+            val position = params.key ?: startingPage // Get the current page
 
             return try {
                 val response = searchService.searchPhotos(query, position, params.loadSize)
@@ -34,7 +34,7 @@ class SearchHandler @Inject constructor(private val retrofit: Retrofit) {
 
                 LoadResult.Page(
                     data = photos,
-                    prevKey = if (position == STARTING_PAGE_INDEX) null else position - 1,
+                    prevKey = if (position == startingPage) null else position - 1,
                     nextKey = if (photos.isEmpty()) null else position + 1
                 )
             } catch (exception: IOException) {
